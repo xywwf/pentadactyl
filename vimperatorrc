@@ -187,7 +187,9 @@ noremap q     :stop<CR>
 noremap <C-q> :stop<CR>
 
 " Kill the buffer with C-x k
-noremap <C-x>k d
+noremap <C-x>k :tabclose
+noremap d <Nop>
+noremap dd :tabclose
 
 " Undo close tab with C-_ (also with C-Shift-t, as C-t is new tab)
 noremap c u
