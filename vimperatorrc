@@ -339,7 +339,7 @@ javascript <<EOF
     statusPanel.appendChild(document.getElementById("feed-button"));
     /* statusPanel.appendChild(document.getElementById("star-button")); */
     statusPanel.firstChild.setAttribute("style", "padding: 0; max-height: 16px;");
-i    document.getElementById("status-bar")
+    document.getElementById("status-bar")
             .insertBefore(statusPanel, document.getElementById("security-button"));
 })();
 EOF
