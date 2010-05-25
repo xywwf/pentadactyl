@@ -107,7 +107,7 @@ noremap j 2h
 noremap l 2l
 noremap i 3k
 noremap k 3j
-noremap <Left>  2h
+:noremap <Left>  2h
 noremap <Right> 2l
 noremap <Up>    3k
 noremap <Down>  3j
@@ -187,9 +187,9 @@ noremap q     :stop<CR>
 noremap <C-q> :stop<CR>
 
 " Kill the buffer with C-x k
-noremap <C-x>k :tabclose
 noremap d <Nop>
-noremap dd :tabclose
+noremap <C-x>k :tabclose<CR>
+noremap dd :tabclose<CR>
 
 " Undo close tab with C-_ (also with C-Shift-t, as C-t is new tab)
 noremap c u
@@ -216,20 +216,22 @@ noremap gg :o<SPACE>
 noremap h f
 noremap <A-h> ;t
 noremap <C-h> ;b
+noremap f <Nop>
 
 
 " Open a link in a new tab with g
 " Open a link in the current tab <A-g>
-"noremap <A-g> :t<SPACE>
+noremap <A-g><A-g> :t<SPACE>
 noremap  gg    :o<SPACE>
-noremap  tt    :t<SPACE>
-noremap  <A-g> :o<SPACE>
-noremap  <A-t> :t<SPACE>
+"noremap  tt    :t<SPACE>
+"noremap  <A-g> :o<SPACE>
+"noremap  <A-t> :t<SPACE>
 
 "
 " Extended hint mode with M-j
 "  ; - focus link, a - save, y - copy link, O - :open query, T - for :tabopen ...
 noremap , ;
+noremap . :
 
 
 " We can now also use F for Shift+b/f as back/forward
@@ -323,20 +325,6 @@ map <S-A-End> :tabmove! +1<CR>
 " }}}
 
 
-" {{{ Plugin bindings
-"
-" Buftabs
-map <C-c>b :set invbuftabs<CR>
-
-" Noscript
-map <C-c>s :noscript toggletemp<CR>
-map <C-c>S :noscript popup<CR>
-
-" TinyURL
-map <C-c>t :exe ":tinyurl "+getBrowser().contentWindow.location.href<CR>
-" }}}
-" }}}
-
 command -description "News reader" rss  :open www.google.it/reader/view/
 command -description "Mail reader" mail :open www.gmail.com
 
@@ -351,7 +339,7 @@ javascript <<EOF
     statusPanel.appendChild(document.getElementById("feed-button"));
     /* statusPanel.appendChild(document.getElementById("star-button")); */
     statusPanel.firstChild.setAttribute("style", "padding: 0; max-height: 16px;");
-    document.getElementById("status-bar")
+i    document.getElementById("status-bar")
             .insertBefore(statusPanel, document.getElementById("security-button"));
 })();
 EOF
