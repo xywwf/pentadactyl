@@ -337,7 +337,6 @@ map <C-c>t :exe ":tinyurl "+getBrowser().contentWindow.location.href<CR>
 
 command -description "News reader" rss  :open www.google.it/reader/view/
 command -description "Mail reader" mail :open www.gmail.com
-command -description "Dept. Page"  di   :open www.dsi.uniroma1.it/~lauria/
 
  
 " {{{ Javascript functions
