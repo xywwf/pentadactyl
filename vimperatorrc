@@ -16,7 +16,7 @@
 " {{{ Options
 "
 " User styles as colorschemes in Vimperator 2
-colorscheme zenburn
+" colorscheme zenburn
 
 " Window title
 set titlestring=Firefox
@@ -193,6 +193,8 @@ noremap dd :tabclose<CR>
 
 " Undo close tab with C-_ (also with C-Shift-t, as C-t is new tab)
 noremap c u
+noremap rr :undo<CR>
+
 
 " Exit and save the session with C-x C-c
 noremap <C-x><C-c> ZZ
