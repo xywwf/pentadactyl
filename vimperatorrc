@@ -18,13 +18,14 @@
 " User styles as colorschemes in Vimperator 2
 " colorscheme zenburn
 
+:source ~/personal/conf/vimperatorrc-private
+
 " Window title
 set titlestring=Firefox
 
 " No toolbar and scrollbars by default
 set go=
 
-" set go+=D
 
 " Editor, C-i invokes it in text fields
 set editor=emacsclient
@@ -51,8 +52,8 @@ set focuscontent
 set showstatuslinks=2
 
 " Show completions and use AwesomeBar (+search plugins)
-set complete=sl
-"set compleye+=D
+set complete=ls
+autocmd VimperatorEnter '.*' :set complete=Dls
 set wildoptions=auto
 
 " Ex commands output in a new tab by default (prefs, addons...)
@@ -192,7 +193,6 @@ noremap <C-x>k :tabclose<CR>
 noremap dd :tabclose<CR>
 
 " Undo close tab with C-_ (also with C-Shift-t, as C-t is new tab)
-noremap c u
 noremap rr :undo<CR>
 
 
@@ -315,7 +315,7 @@ map <C-c>u gu
 map <C-c><C-u> gU
 
 " Restart with C-c C-r
-map <C-c><C-r> :restart<CR>
+"map <C-c><C-r> :restart<CR>
 
 " Tab moving helpers
 "map <A-m> :tabmove<SPACE>
