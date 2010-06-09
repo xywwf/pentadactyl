@@ -16,7 +16,7 @@
 " {{{ Options
 "
 " User styles as colorschemes in Vimperator 2
-" colorscheme zenburn
+:colorscheme maxzenburn
 
 :source ~/personal/conf/vimperatorrc-private
 
