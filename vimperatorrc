@@ -263,6 +263,7 @@ noremap <C-d> <C-v>
 "
 " C-x C-f starts the "Open File" dialog (C-x C-s is Save)
 map <C-x><C-f> <C-d><C-o>
+map <C-x><C-s> <C-d><C-s>
 
 
 " {{{ Personal key bindings
