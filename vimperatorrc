@@ -52,8 +52,8 @@ set focuscontent
 set showstatuslinks=2
 
 " Show completions and use AwesomeBar (+search plugins)
-set complete=ls
-autocmd VimperatorEnter '.*' :set complete=Dls
+set complete=tf
+autocmd VimperatorEnter '.*' :set complete=Dtf
 set wildoptions=auto
 
 " Ex commands output in a new tab by default (prefs, addons...)
