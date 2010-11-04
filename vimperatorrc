@@ -52,8 +52,8 @@ set focuscontent
 set showstatuslinks=2
 
 " Show completions and use AwesomeBar (+search plugins)
-set complete=tf
-autocmd VimperatorEnter '.*' :set complete=Dtf
+set complete=thf
+autocmd VimperatorEnter '.*' :set complete=Dthf
 set wildoptions=auto
 
 " Ex commands output in a new tab by default (prefs, addons...)
@@ -66,7 +66,7 @@ set newtab=all
 
 " {{{ Key bindings
 "     - Emacs GTK key-theme and FF already provide bindings for input fields
-" 
+"
 " M-x enters command mode
 noremap <A-x> :
 
@@ -166,7 +166,7 @@ noremap <C-r> ?
 " Copy the current URL to the clipboard with M-w
 noremap <A-w> y
 "
-" Copy selected text to the clipboard with C-w 
+" Copy selected text to the clipboard with C-w
 noremap <C-c> Y
 
 " Paste the current clipboard selection to a new buffer with C-y
@@ -331,7 +331,7 @@ map <S-A-End> :tabmove! +1<CR>
 command -description "News reader" rss  :open www.google.it/reader/view/
 command -description "Mail reader" mail :open www.gmail.com
 
- 
+
 " {{{ Javascript functions
 "
 " Show the Feed and Bookmark buttons on the statusbar
