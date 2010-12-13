@@ -348,7 +348,32 @@ javascript <<EOF
 EOF
 " }}}
 
+" {{{ Org-protocol
+"
+" Communicate with Emacs orgmode
+" See http://orgmode.org/worg/org-contrib/org-protocol.php
 
+javascript <<EOF
+function org_store_link () {
+   with (content) {
+      location.href='org-protocol://store-link://'+
+      encodeURIComponent(location.href)+'/'+
+      encodeURIComponent(window.content.document.title)
+   }
+}
+function org_remember () {
+   with (content) {
+      location.href='org-protocol://remember://'+
+      encodeURIComponent(location.href)+'/'+
+      encodeURIComponent(window.content.document.title)+'/'+
+      encodeURIComponent(window.getSelection())
+   }
+}
+EOF
+" Map some keys to use org-mode
+"map s :javascript org_store_link()<cr>
+"map S :javascript org_remember()<cr>
+"
 
 
 echo "[vimperator initialized]"
