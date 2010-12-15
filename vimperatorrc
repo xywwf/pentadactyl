@@ -328,8 +328,9 @@ map <S-A-End> :tabmove! +1<CR>
 " }}}
 
 
-command -description "News reader" rss  :open www.google.it/reader/view/
-command -description "Mail reader" mail :open www.gmail.com
+command -description "News reader"  rss  :open www.google.it/reader/view/
+command -description "Mail reader"  mail :open www.gmail.com
+command -description "Org-Remember" org  :javascript :javascript org_remember()
 
 
 " {{{ Javascript functions
@@ -369,10 +370,17 @@ function org_remember () {
       encodeURIComponent(window.getSelection())
    }
 }
+function org_capture () {
+   with (content) {
+      location.href='org-protocol://capture://'+
+      encodeURIComponent(location.href)+'/'+
+      encodeURIComponent(window.content.document.title)+'/'+
+      encodeURIComponent(window.getSelection())
+   }
+}
 EOF
 " Map some keys to use org-mode
-"map s :javascript org_store_link()<cr>
-"map S :javascript org_remember()<cr>
+map <F5> :javascript org_remember()<cr>
 "
 
 
