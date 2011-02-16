@@ -41,7 +41,7 @@ set go-=D
 ]]></detail>
 </VimperatorPlugin>;
 
-liberator.plugins.delicious = (function(){
+dactyl.plugins.delicious = (function(){
 
 let uuid = PLUGIN_INFO.require[0].@id.toString();
 if (Application.extensions.has(uuid) && Application.extensions.get(uuid).enabled){
@@ -166,7 +166,7 @@ function bookmarkSearch(tags, query){
         url: url,
         name: st.getString(0),
         note: st.getString(2),
-        icon: bookmarks.getFavicon(url),
+        //icon: bookmarks.getFavicon(url),
         tags: ydls.getTags(url, {})
       });
     }
@@ -275,12 +275,12 @@ let self = {
   },
 };
 self.init();
-liberator.registerObserver("shutdown", self.close);
-config.guioptions['D'] = ['Delicious Toolbar',['ybToolbar']];
+dactyl.registerObserver("shutdown", self.close);
+//config.guioptions['D'] = ['Delicious Toolbar',['ybToolbar']];
 completion.addUrlCompleter("D", "Delicious Bookmarks", self.urlCompleter);
 return self;
 })();
 function onUnload(){
-  liberator.plugins.delicious.close();
+  dactyl.plugins.delicious.close();
 }
 // vim: sw=2 ts=2 et:

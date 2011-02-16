@@ -15,16 +15,12 @@
 
 " {{{ Options
 "
-" User styles as colorschemes in Vimperator 2
-:colorscheme maxzenburn
-
-:source ~/personal/conf/vimperatorrc-private
 
 " Window title
 set titlestring=Firefox
 
 " No toolbar and scrollbars by default
-set go=
+set go=Cs
 
 
 " Editor, C-i invokes it in text fields
@@ -34,34 +30,27 @@ set editor=emacsclient
 set history=10000
 
 " Show pattern matches as you type
-set incsearch
+set incfind
 
 " Hilight previous search pattern matches
-set hlsearch
+set hlfind
 
-" Override ignorecase if pattern has uppercase chars
-set smartcase
+" Ignore case in search unless pattern has uppercase chars
+set findcase=smart
 
 " Show the tab bar only if more then one tab is open
-set showtabline=0
-
-" Focus content after a page has loaded
-set focuscontent
+set showtabline=never
 
 " Show destination links in 1=status line, 2=command line
-set showstatuslinks=2
+set showstatuslinks=status
 
 " Show completions and use AwesomeBar (+search plugins)
-set complete=tf
-autocmd VimperatorEnter '.*' :set complete=Dtf
-set wildoptions=auto
+set complete=tfl
+autocmd Enter '.*' :set complete=Dtfl
+autocmd Enter ':*' :toolbarhide Delicious Toolbar
 
 " Ex commands output in a new tab by default (prefs, addons...)
 set newtab=all
-
-" Internal default search engine is ignored, plugins are used
-" set ds=yubnub
-" }}}
 
 
 " {{{ Key bindings
@@ -70,6 +59,8 @@ set newtab=all
 " M-x enters command mode
 noremap <A-x> :
 
+" User styles as colorschemes
+:colorscheme zenburn
 
 " DISABLED Emacs navigation in command line and insert mode
 "cmap <C-n> <Tab>
@@ -330,7 +321,10 @@ map <S-A-End> :tabmove! +1<CR>
 
 command -description "News reader"  rss  :open www.google.it/reader/view/
 command -description "Mail reader"  mail :open www.gmail.com
-command -description "Org-Remember" org  :javascript :javascript org_remember()
+command -description "Org-Remember" org  :javascript org_remember()
+command -description "Read later on Instapaper"  rl           :open instapaper-archive
+command -description "Read later on Instapaper"  ip           :open instapaper-archive
+command -description "Read later on Instapaper"  instapaper   :open instapaper-archive
 
 
 " {{{ Javascript functions
@@ -382,6 +376,3 @@ EOF
 " Map some keys to use org-mode
 map <F5> :javascript org_remember()<cr>
 "
-
-
-echo "[vimperator initialized]"
