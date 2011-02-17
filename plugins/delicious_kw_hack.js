@@ -5,7 +5,7 @@ bookmarks.getSearchURL = function(text, useDefsearch) {
     (useDefsearch ? options["defsearch"] + " " : "")
     + text;
 
-  this.getSearchEngines();
+  //this.getSearchEngines();
 
   url = window.getShortcutOrURI(searchString, postData);
 
