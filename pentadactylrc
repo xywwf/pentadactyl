@@ -24,7 +24,7 @@ set go=Cs
 
 
 " Editor, C-i invokes it in text fields
-set editor=emacsclient
+set editor="emacsclient -c"
 
 " Command line and search patterns history
 set history=10000
@@ -60,7 +60,7 @@ set newtab=all
 noremap <A-x> :
 
 " User styles as colorschemes
-:colorscheme zenburn
+:colorscheme maxzenburn
 
 " DISABLED Emacs navigation in command line and insert mode
 "cmap <C-n> <Tab>

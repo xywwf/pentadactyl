@@ -1,68 +1,64 @@
-" == Max's Zenburn Color Scheme== -*- mode: vimrc -*-
-" name: MaxZenburn
-" file:    maxzenburn.vimp
-" author:  Unknown with alias "nvostanen" , Modified by Massimo Lauria (2010)
-" == Zenburn color scheme settings ==
-hi Bell                 border: 0 none; background-color: black;
-hi Boolean              color: #CC9393;
-hi CmdLine              font-family: monospace; padding: 1px; font-size: 10pt; font-family: monospace; font-weight: normal; padding: 0px 3px;
+" FileName: maxzenburn.penta -*- vimrc -*-
+" Author: Massimo Lauria
+" Time-stamp: "2011-02-17, giovedì 01:06 (CET) Massimo Lauria"
+"
+hi Cmd background-color:#313633; font-size:9pt;
+hi -a StatusLineNormal      color:#ccdc90; background-color:#313633 !important; margin-bottom:-2px; font-size:9pt;
 
-hi CmdOutput            white-space: pre;
-hi CompDesc             color: #d0d0d0; width: 50%;font-size: 10pt;
-hi CompGroup:not(:first-of-type)    margin-top: .5em;
-hi CompIcon             width: 16px; min-width: 16px; display: inline-block; margin-right: .5ex;
-hi CompIcon>img         max-width: 16px; max-height: 16px; vertical-align: middle;
-hi CompItem             font-size: 11px;
-hi CompItem>*           padding: 0 .5ex;
-hi CompItem[selected]   color: #ffffd7; background: #444444;
-hi CompLess             text-align: center; height: 0; line-height: .5ex; padding-top: 1ex;
-hi CompLess::after      content: "\2303" /* Unicode up arrowhead */
-hi CompMore             text-align: center; height: .5ex; line-height: .5ex; margin-bottom: -.5ex;
-hi CompMore::after      content: "\2304" /* Unicode down arrowhead */
-hi CompMsg              font-style: italic; margin-left: 16px;
-hi CompResult           width: 45%; overflow: hidden;font-size: 10pt; font-family: monospace; font-weight: normal;
-hi CompTitle            color: #87af87; background: #242421; font-weight: bold;
-hi CompTitle>*          padding: 0 .5ex;
-hi ErrorMsg             color: #242421; background: #CC9393; font-weight: bold;
-hi Filter               color: #ffffd7; background: #444444;
-hi FrameIndicator       background-color: #CC9393; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
-hi Function             color: navy;
-hi Gradient             height: 1px; margin-bottom: -1px; margin-top: -1px;
-hi GradientLeft         background-color: #87af87;
-hi GradientRight        background-color: #242421;
-"hi Hint                 font-family: monospace; font-size: 10px; font-weight: bold; color: #385F38; background-color: #F8F893; border-color: ButtonShadow; border-width: 0px; border-style: solid; padding 0px 1px 0px 1px;
-hi Hint					font-family: monospace; font-size: 10px; font-weight: bold; color: #ff0000; background-color: #ffff00; border-color: red; border-width: 1px; border-style: solid; padding 0px 2px 0px 2px;
-hi Hint::after          content: attr(number);
-hi HintActive           background: #F18C96; color: #333333;
-hi HintElem             background-color: #8FAF9F; color: #000D18;
-hi HintImage            opacity: .5;
-hi Indicator            color: #94BFF3;
-hi InfoMsg              color: #DCDCCD; background: #242421;
-hi LineNr               color: orange; background: #242421;
-hi Message              white-space: normal; min-width: 100%; padding-left: 2em; text-indent: -2em; display: block;
-hi ModeMsg              color: #DCDCCD; background: #242421;
-hi MoreMsg              color: #9ECE9E; background: #242421;
-hi NonText              color: #94BFF3; min-height: 16px; padding-left: 2px;
-hi Normal               color: #d7d7d7; background: #242421;
-hi Null                 color: #94BFF3;
-hi Number               color: #94BFF3;
-hi Object               color: maroon;
-hi Preview              color: gray;
-hi Question             color: #9ECE9E; background: #242421; font-weight: bold;
-hi Search               font-size: inherit; padding: 0; color: #385F38; background-color: #F8F893; padding: 0;
-hi StatusLine           color: #afaf87; background: #3a3a3a; font-size: 10pt; font-family: monospace; font-weight: bold; padding: 0px 3px;
-hi StatusLineBroken     color: #af8787; background: #3a3a3a;
-hi StatusLineSecure     color: #87af87; background: #3a3a3a;
-hi String               color: #9ECE9E;
-hi TabIconNumber        font-weight: normal; color: #DCDCCD; text-align: center; text-shadow: black -1px 0 1px, black 0 1px 1px, black 1px 0 1px, black 0 -1px 1px;
-hi TabNumber            font-weight: bold; margin: 0; padding-right: .3ex;
-hi Tag                  color: #94BFF3;
-hi Title                color: #87af87; background: #242421; font-weight: bold;
-hi URL                  text-decoration: none; color: #9ECE9E; background: inherit;
-hi URL:hover            text-decoration: underline; cursor: pointer;
-hi WarningMsg           color: #CC9393; background: #242421;
+hi -l StatusLineNormal StatusLineSecure         color:#87af87;
+hi -l StatusLineNormal StatusLineBroken         color:#ffa0a0;
+hi -l StatusLineNormal StatusLineExtended       color:#a0ffa0;
+hi -a String                color:#cc9393;
+hi -a Boolean               color:#dca3a3;
+hi -a Function              color:#efef8f;
+hi -a Number                color:#8cd0d3;
+hi WarningMsg            color:#ffffff; background-color:#333333 !important; font-weight:bold;
+hi -l WarningMsg StatusWarningMsg
+hi -l WarningMsg CmdWarningMsg
+hi ErrorMsg              color:#80d4aa !important; background-color:#2f2f2f !important; font-weight:bold; font-size:9pt;
+hi -l ErrorMsg StatusErrorMsg
+hi -l ErrorMsg CmdErrorMsg
+hi -a ModeMsg               color:#ffcfaf; background-color:transparent !important;
+hi -l ModeMsg StatusModeMsg
+hi -l ModeMsg CmdModeMsg
+hi -a MoreMsg               color:#ffffff !important; background-color:inherit !important; font-weight:bold;
+hi -l MoreMsg StatusMoreMsg
+hi -l MoreMsg CmdMoreMsg
+hi -l Cmd InfoMsg               color:#cccccc !important;
+hi -l InfoMsg StatusInfoMsg
+hi -l InfoMsg CmdInfoMsg
+hi Question              color:#ffffff !important; background-color:inherit !important; font-weight:bold;
+hi -l Question StatusQuestion
+hi -l Question CmdQuestion
+hi -a Tag                   color:#e89393; font-weight:bold;
+hi -a CmdLine               font-weight:normal; padding:0 3px;
+hi -a NonText               color:#404040; font-weight:bold;
+hi Normal                color:#dcdccc !important; background-color:#313633 !important; font-size:9pt;
+hi -l Normal CmdNormal
+hi -l Normal StatusNormal
+hi -a Title                 color:#efefef; background-color:inherit; font-weight:bold;
+hi -a CompItem[selected]    background-color:#4c504d !important;
+hi -a CompMore              margin-bottom:0;margin-top:.5ex;
+" hi -a CompMore::after       content:"﹀"
+hi -a CompLess              margin-top:.5ex;margin-bottom:1ex;
+" hi -a CompLess::after       content:"︿"
+hi -a CompTitle             color:lightblue; background-color:transparent;
+hi -a CompTitleSep          background:-moz-linear-gradient(60deg, lightblue, white); height:1px;
+hi -a Filter                font-style:normal; font-weight:bold;
+hi -a Keyword               color:#f0dfaf; font-weight:bold;
+hi -a URL                   text-decoration:none; color:#9ECE9E; background-color:inherit;
+hi -a URL:hover             text-decoration:underline; cursor: pointer;
+hi -a LineNr                color:#9fafaf; background-color:#262626;
 
-style -name statusbar chrome://* <<EOM
-#status-bar statusbarpanel { padding: 0 1px !important; }
-statusbarpanel > * { margin: 0 !important; padding: 0 2px 0 0 !important; }
-EOM
+" Hint
+hi Hint font-family: monospace; font-size: 10px; font-weight: bold; color: #ff0000; background-color: #ffff00; border-color: black; border-width: 1px; border-style: solid; padding 0px 2px 0px 2px
+hi Hint::after				content: attr(number);
+hi HintActive				background: #F18C96; color: #333333;
+hi HintElem	                background-color: #8FAF9F; color: #000D18;
+hi HintImage opacity: .5;
+
+" plugin styles
+hi -a BufTabSelected        color:#2e3330; background-color:#88b090; padding:0 4px;
+hi -a BufTabs               margin:0 4px; overflow:hidden;
+hi -a BufTab                padding:0 2px;
+" vim: set ft=pentadactyl:ts=4:sw=4:tw=0:
