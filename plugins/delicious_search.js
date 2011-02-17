@@ -166,7 +166,7 @@ function bookmarkSearch(tags, query){
         url: url,
         name: st.getString(0),
         note: st.getString(2),
-        //icon: bookmarks.getFavicon(url),
+        icon: BookmarkCache.getFavicon(url),
         tags: ydls.getTags(url, {})
       });
     }
