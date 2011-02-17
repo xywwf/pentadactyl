@@ -319,9 +319,18 @@ map <S-A-End> :tabmove! +1<CR>
 " }}}
 
 
+" Mail/Rss commands
 command -description "News reader"  rss  :open www.google.it/reader/view/
 command -description "Mail reader"  mail :open www.gmail.com
-command -description "Org-Remember" org  :javascript org_remember()
+
+" Org-Mode commands (Implemented by bookmarklets)
+command -description "Org-Remember"   org    :open org-remember
+command -description "Org-Remember"   org-r  :open org-remember
+command -description "Org-Capture"    org-c  :open org-capture
+command -description "Org-StoreLink"  org-s  :open org-storelink
+noremap -description "Org Remember" -silent <F5> :org<CR>
+
+" Instapaper commands (Implemented by bookmarklets)
 command -description "Read later on Instapaper"  rl           :open instapaper-archive
 command -description "Read later on Instapaper"  ip           :open instapaper-archive
 command -description "Read later on Instapaper"  instapaper   :open instapaper-archive
@@ -342,37 +351,3 @@ javascript <<EOF
 })();
 EOF
 " }}}
-
-" {{{ Org-protocol
-"
-" Communicate with Emacs orgmode
-" See http://orgmode.org/worg/org-contrib/org-protocol.php
-
-javascript <<EOF
-function org_store_link () {
-   with (content) {
-      location.href='org-protocol://store-link://'+
-      encodeURIComponent(location.href)+'/'+
-      encodeURIComponent(window.content.document.title)
-   }
-}
-function org_remember () {
-   with (content) {
-      location.href='org-protocol://remember://'+
-      encodeURIComponent(location.href)+'/'+
-      encodeURIComponent(window.content.document.title)+'/'+
-      encodeURIComponent(window.getSelection())
-   }
-}
-function org_capture () {
-   with (content) {
-      location.href='org-protocol://capture://'+
-      encodeURIComponent(location.href)+'/'+
-      encodeURIComponent(window.content.document.title)+'/'+
-      encodeURIComponent(window.getSelection())
-   }
-}
-EOF
-" Map some keys to use org-mode
-map <F5> :javascript org_remember()<cr>
-"
