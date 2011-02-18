@@ -191,7 +191,7 @@ function templateTitleAndIcon(item){
 commands.addUserCommand(["delicious[search]","ds[earch]"], "Delicious Bookmark Search",
   function(args){
     if (args.length > 0){
-      liberator.open(args[0], liberator.CURRENT_TAB);
+      dactyl.open(args[0], dactyl.CURRENT_TAB);
       return;
     }
     let list = bookmarkSearch(args["-tags"], args["-query"]);
@@ -201,7 +201,7 @@ commands.addUserCommand(["delicious[search]","ds[earch]"], "Delicious Bookmark S
         "[" + item.tags.join(",") + "] " + item.note
       ];
     }));
-    liberator.echo(xml, true);
+    dactyl.echo(xml, true);
   },{
     options: [
       [["-tags","-t"], commands.OPTION_LIST, null, tagCompletion],
