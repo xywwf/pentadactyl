@@ -44,6 +44,9 @@ set showtabline=never
 " Show destination links in 1=status line, 2=command line
 set showstatuslinks=status
 
+" Do not close the window if last tab is closed.
+set! browser.tabs.closeWindowWithLastTab=false
+
 " Show completions and use AwesomeBar (+search plugins)
 set complete=tfl
 autocmd Enter '.*' :set complete=Dtfl
