@@ -38,8 +38,8 @@ set hlfind
 " Ignore case in search unless pattern has uppercase chars
 set findcase=smart
 
-" Show the tab bar only if more then one tab is open
-set showtabline=never
+" Show the tab bar (just because of TreeTab extension)
+set showtabline=always
 
 " Show destination links in 1=status line, 2=command line
 set showstatuslinks=status
