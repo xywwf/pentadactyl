@@ -1,0 +1,12 @@
+
+* Pentadactyl Configuration
+
+This setup is heavily inspired  to Emacs, while the original intent of
+Pentadactyl is to mimic Vi editor.
+
+The present code  is mainly borrowed (read stolen)  from the source:
+
+http://sysphere.org/~anrxc/j/articles/vimperator/index.html
+
+and
+
