@@ -3,11 +3,11 @@
 # Copyright (C) 2010, 2011 by Massimo Lauria <lauria.massimo@gmail.com>
 #
 # Created   : "2011-03-05, sabato 01:03 (CET) Massimo Lauria"
-# Time-stamp: "2011-03-05, sabato 15:00 (CET) Massimo Lauria"
+# Time-stamp: "2011-03-05, sabato 15:02 (CET) Massimo Lauria"
 
 # Description::
 #
-# Install file to setup the shell.
+# Install file to setup pentadactyl.
 
 # -------------------- Env Variables ------------------------
 DESTDIR="$HOME"
