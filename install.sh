@@ -3,14 +3,13 @@
 # Copyright (C) 2010, 2011 by Massimo Lauria <lauria.massimo@gmail.com>
 #
 # Created   : "2011-03-05, sabato 01:03 (CET) Massimo Lauria"
-# Time-stamp: "2011-03-05, sabato 15:02 (CET) Massimo Lauria"
+# Time-stamp: "2011-03-05, sabato 15:06 (CET) Massimo Lauria"
 
 # Description::
 #
 # Install file to setup pentadactyl.
 
 # -------------------- Env Variables ------------------------
-DESTDIR="$HOME"
 CP=cp
 LN=ln
 RM=rm
@@ -85,7 +84,7 @@ echo "OK."
 echo -n "Installing new config files.."
 $RM -f $HOME/.pentadactyl
 $RM -f $HOME/.pentadactylrc
-$LN -s $PWD/ $DESTDIR/.pentadactyl
+$LN -s $PWD/ $HOME/.pentadactyl
 $LN -s $PWD/pentadactylrc $HOME/.pentadactylrc
 echo "OK"
 
