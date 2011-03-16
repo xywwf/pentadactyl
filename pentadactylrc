@@ -49,7 +49,7 @@ set! browser.tabs.closeWindowWithLastTab=false
 
 " Show completions and use AwesomeBar (+search plugins)
 set complete=tfl
-autocmd Enter '.*' :set complete=Dtfl
+autocmd Enter ':*' :set complete+=D
 autocmd Enter ':*' :toolbarhide Delicious Toolbar
 
 " Ex commands output in a new tab by default (prefs, addons...)

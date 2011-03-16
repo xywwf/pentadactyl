@@ -188,7 +188,7 @@ function templateTitleAndIcon(item){
   </>;
 }
 
-commands.addUserCommand(["delicious[search]","ds[earch]"], "Delicious Bookmark Search",
+group.commands.add(["delicious[search]","ds[earch]"], "Delicious Bookmark Search",
   function(args){
     if (args.length > 0){
       dactyl.open(args[0], dactyl.CURRENT_TAB);
