@@ -3,7 +3,7 @@
 # Copyright (C) 2010, 2011 by Massimo Lauria <lauria.massimo@gmail.com>
 #
 # Created   : "2011-03-05, sabato 01:03 (CET) Massimo Lauria"
-# Time-stamp: "2011-03-05, sabato 15:06 (CET) Massimo Lauria"
+# Time-stamp: "2011-05-18, mercoledì 17:31 (CEST) Massimo Lauria"
 
 # Description::
 #
@@ -82,7 +82,7 @@ echo "OK."
 
 # Do install
 echo -n "Installing new config files.."
-$RM -f $HOME/.pentadactyl
+$RM -rf $HOME/.pentadactyl
 $RM -f $HOME/.pentadactylrc
 $LN -s $PWD/ $HOME/.pentadactyl
 $LN -s $PWD/pentadactylrc $HOME/.pentadactylrc
