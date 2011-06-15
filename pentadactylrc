@@ -48,7 +48,7 @@ set showstatuslinks=status
 set! browser.tabs.closeWindowWithLastTab=false
 
 " Show completions and use AwesomeBar (+search plugins)
-set complete=fl
+set complete=sfl
 "autocmd Enter ':*' :set complete=Dfl
 "autocmd Enter ':*' :toolbarhide Delicious Toolbar
 
