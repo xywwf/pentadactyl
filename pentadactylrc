@@ -1,5 +1,5 @@
 " {{{ Pentadactyl configuration with Emacs bindings  -*- vimrc -*-
-"     Modified by Massimo Lauria 2010
+"     Modified by Massimo Lauria 2010, 2011
 "
 " Bindings
 "   * http://sysphere.org/~anrxc/j/articles/vimperator/index.html
@@ -15,9 +15,6 @@
 
 " {{{ Options
 "
-
-" Window title
-set titlestring=Firefox
 
 " No toolbar and scrollbars by default
 set go=Cs
@@ -39,7 +36,7 @@ set hlfind
 set findcase=smart
 
 " Show the tab bar (just because of TreeTab extension)
-set showtabline=always
+set showtabline=never
 
 " Show destination links in 1=status line, 2=command line
 set showstatuslinks=status
@@ -323,8 +320,8 @@ map <S-A-End> :tabmove! +1<CR>
 
 
 " Mail/Rss commands
-command -description "News reader"  rss  :open www.google.it/reader/view/
 command -description "Mail reader"  mail :open www.gmail.com
+command -description "News reader"  rss  :open www.google.it/reader/view/
 
 " Org-Mode commands (Implemented by bookmarklets)
 command -description "Org-Remember"   org    :open org-remember
@@ -338,19 +335,5 @@ command -description "Read later on Instapaper"  rl           :open instapaper-a
 command -description "Read later on Instapaper"  ip           :open instapaper-archive
 command -description "Read later on Instapaper"  instapaper   :open instapaper-archive
 
-
-" {{{ Javascript functions
-"
-" Show the Feed and Bookmark buttons on the statusbar
-javascript <<EOF
-(function(){
-    var statusPanel = document.createElement("statusbarpanel");
-    statusPanel.setAttribute("id", "buttons-panel-clone");
-    statusPanel.appendChild(document.getElementById("feed-button"));
-    /* statusPanel.appendChild(document.getElementById("star-button")); */
-    statusPanel.firstChild.setAttribute("style", "padding: 0; max-height: 16px;");
-    document.getElementById("status-bar")
-            .insertBefore(statusPanel, document.getElementById("security-button"));
-})();
-EOF
-" }}}
+" Delicious completion (to be changed in next version)
+:js services.add("autoCompleteSearch", "@mozilla.org/autocomplete/search;1?name=delicious", "nsIAutoCompleteSearch");
