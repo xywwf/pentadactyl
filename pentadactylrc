@@ -190,10 +190,10 @@ noremap rr :undo<CR>
 " Exit and save the session with C-x C-c
 noremap <C-x><C-c> ZZ
 
-" Buffer lists with C-x b and C-x C-b
-noremap b          B
-noremap <C-x>b     B
-noremap <C-x><C-b> B
+" Buffer lists with C-x b and C-x C-b, ready to swap
+noremap b          Bf
+noremap <C-x>b     Bf
+noremap <C-x><C-b> Bf
 
 
 " Open a link in a new tab with C-x t
