@@ -1,5 +1,5 @@
 " {{{ Pentadactyl configuration with Emacs bindings  -*- vimrc -*-
-"     Modified by Massimo Lauria 2010, 2011
+"     Modified by Massimo Lauria 2010, 2011, 2012
 "
 " Bindings
 "   * http://sysphere.org/~anrxc/j/articles/vimperator/index.html
@@ -45,9 +45,7 @@ set showstatuslinks=status
 set! browser.tabs.closeWindowWithLastTab=false
 
 " Show completions and use AwesomeBar (+search plugins)
-set complete=sfl
-"autocmd Enter ':*' :set complete=Dfl
-"autocmd Enter ':*' :toolbarhide Delicious Toolbar
+set complete=native:delicious,location,suggestion
 
 " Ex commands output in a new tab by default (prefs, addons...)
 set newtab=all
@@ -335,5 +333,3 @@ command -description "Read later on Instapaper"  rl           :open instapaper-a
 command -description "Read later on Instapaper"  ip           :open instapaper-archive
 command -description "Read later on Instapaper"  instapaper   :open instapaper-archive
 
-" Delicious completion (to be changed in next version)
-:js services.add("autoCompleteSearch", "@mozilla.org/autocomplete/search;1?name=delicious", "nsIAutoCompleteSearch");
