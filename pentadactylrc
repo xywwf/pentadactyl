@@ -203,10 +203,11 @@ noremap <C-x><C-b> Bf
 noremap gg :o<SPACE>
 
 
-" Open hints in new tab when alt is pressed
+" Open hints in new tab when Control is pressed,
+" and in a new backgroud tab when Alt is.
 noremap h f
-noremap <A-h> ;t
-noremap <C-h> ;b
+noremap <A-h> ;b
+noremap <C-h> ;t
 noremap f <Nop>
 
 
