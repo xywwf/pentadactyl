@@ -322,12 +322,19 @@ map <S-A-End> :tabmove! +1<CR>
 command -description "Mail reader"  mail :open www.gmail.com
 command -description "News reader"  rss  :open www.google.it/reader/view/
 
+
+" Frequent websites
+command -description "Open mail/rss/twitter input feeds" input :open http://www.google.it/reader/ | http://mail.google.com/mail/ | https://www.twitter.com
+command -description "Open starred elements in RSS/Mail" star :open http://www.google.it/reader/view/user/-/state/com.google/starred | http://mail.google.com/mail/#starred
+
+
 " Org-Mode commands (Implemented by bookmarklets)
 command -description "Org-Remember"   org    :open org-remember
 command -description "Org-Remember"   org-r  :open org-remember
 command -description "Org-Capture"    org-c  :open org-capture
 command -description "Org-StoreLink"  org-s  :open org-storelink
 noremap -description "Org Remember" -silent <F5> :org<CR>
+
 
 " Instapaper commands (Implemented by bookmarklets)
 command -description "Read later on Instapaper"  rl           :open instapaper-archive
