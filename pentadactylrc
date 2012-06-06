@@ -336,7 +336,7 @@ command -description "Open starred elements in RSS/Mail" star :open http://www.g
 " Add a bookmark with C-c a (dialog)
 noremap -description "Save on Delicious" -silent <C-c>a :open delicious-save<CR>
 noremap -description "Save on Delicious" -silent <A-b>  :open delicious-save<CR>
-
+command -description "Open Delicious preferences" dprefs :emenu Strumenti.Delicious Options
 
 " Org-Mode commands (Implemented by bookmarklets)
 command -description "Remember in Emacs"   org-remember    :open org-remember
