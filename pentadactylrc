@@ -44,8 +44,8 @@ set showstatuslinks=status
 " Do not close the window if last tab is closed.
 set! browser.tabs.closeWindowWithLastTab=false
 
-" Show completions and use AwesomeBar (+search plugins)
-set complete=native:delicious,location,suggestion
+" Show completions (delicious+awesomebar,google suggestions)
+set complete=native:delicious,suggestion
 
 " Ex commands output in a new tab by default (prefs, addons...)
 set newtab=all
@@ -338,20 +338,20 @@ noremap -description "Save on Delicious" -silent <C-c>a :open delicious-save<CR>
 noremap -description "Save on Delicious" -silent <A-b>  :open delicious-save<CR>
 
 
-
 " Org-Mode commands (Implemented by bookmarklets)
-command -description "Org-Remember"   org-remember    :open org-remember
-command -description "Org-Capture"    org-capture     :open org-capture
-command -description "Org-StoreLink"  org-store-link  :open org-store-link
-noremap -description "Org Remember" -silent <F5> :org-remember<CR>
+command -description "Remember in Emacs"   org-remember    :open org-remember
+command -description "Capture in Emacs"    org-capture     :open org-capture
+command -description "Store Link in Emacs"  org-store-link  :open org-store-link
+noremap -description "Remember in Emacs" -silent <F5> :org-remember<CR>
 
 
 " Read Later commands (Implemented by bookmarklets)
 command -description "Read later on Readability"  rl-readability  :open read-later-readability
 command -description "Read later on Instapaper"   rl-instapaper   :open read-later-instapaper
-command -description "Send to Kindle using Readability"  kindle-readability  :open send-to-kindle-readability
+command -description "View in Readability"        readability     :open text-readability
+command -description "View in Instapaper"         instapaper      :open text-instapaper
 
 " Defaults
-command -description "Read later on Instapaper"   rl              :open read-later-instapaper
-command -description "Send to Kindle using Readability"  kindle   :open send-to-kindle-readability
-
+command -description "Make page easy to read (instapaper)" read   :open text-instapaper
+command -description "Read later (instapaper)"             later  :open read-later-instapaper
+command -description "Send to Kindle (readability)"        kindle :open send-to-kindle-readability
