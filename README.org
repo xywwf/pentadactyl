@@ -5,3 +5,12 @@ This setup is heavily inspired  to Emacs, while the original intent of
 Pentadactyl is to mimic Vi editor.
 
 The present code is mainly borrowed (read stolen)  from the [[http://sysphere.org/~anrxc/j/articles/vimperator/index.html][Adrian C. (anrxc)]].
+
+
+* Bookmarklets
+
+Unfortunately Delicious  does not allow any more  to save bookmarklets
+in its DB,  since it force “http://” and “https://” to  be a prefix of
+an URL.
+
+The file “./bookmarklets.html” should be ready importable in any browser.
