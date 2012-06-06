@@ -275,12 +275,9 @@ map <C-x><C-s> <C-d><C-s>
 " Focus last used input field with C-c i
 map <C-c>i gi
 
-" Add a bookmark with C-c a (dialog)
-map <C-c>a <C-d><C-d>
-
 " Bookmarks search, and search by tag
-map <C-c>q :bmarks<SPACE>
-map <C-c>w :bmarks -tags=
+" map <C-c>q :bmarks<SPACE>
+" map <C-c>w :bmarks -tags=
 
 " View source with C-c g, and
 map <C-c>g gf
@@ -328,15 +325,33 @@ command -description "Open mail/rss/twitter input feeds" input :open http://www.
 command -description "Open starred elements in RSS/Mail" star :open http://www.google.it/reader/view/user/-/state/com.google/starred | http://mail.google.com/mail/#starred
 
 
+" Unfortunately bookmarklets cannot be saved in Delicious anymore...
+" I have to resort to the classical firefox bookmarks, which have to
+" be imported into each browser.
+"
+" Following commands do not work without the bookmarklets. I could
+" embed then into the rc file (but then I could use then only in
+" firefox + pentadactyl).
+
+" Add a bookmark with C-c a (dialog)
+noremap -description "Save on Delicious" -silent <C-c>a :open delicious-save<CR>
+noremap -description "Save on Delicious" -silent <A-b>  :open delicious-save<CR>
+
+
+
 " Org-Mode commands (Implemented by bookmarklets)
-command -description "Org-Remember"   org    :open org-remember
-command -description "Org-Remember"   org-r  :open org-remember
-command -description "Org-Capture"    org-c  :open org-capture
-command -description "Org-StoreLink"  org-s  :open org-storelink
-noremap -description "Org Remember" -silent <F5> :org<CR>
+command -description "Org-Remember"   org-remember    :open org-remember
+command -description "Org-Capture"    org-capture     :open org-capture
+command -description "Org-StoreLink"  org-store-link  :open org-store-link
+noremap -description "Org Remember" -silent <F5> :org-remember<CR>
 
 
-" Instapaper commands (Implemented by bookmarklets)
-command -description "Read later on Instapaper"  rl           :open instapaper-archive
-command -description "Read later on Instapaper"  ip           :open instapaper-archive
-command -description "Read later on Instapaper"  instapaper   :open instapaper-archive
+" Read Later commands (Implemented by bookmarklets)
+command -description "Read later on Readability"  rl-readability  :open read-later-readability
+command -description "Read later on Instapaper"   rl-instapaper   :open read-later-instapaper
+command -description "Send to Kindle using Readability"  kindle-readability  :open send-to-kindle-readability
+
+" Defaults
+command -description "Read later on Instapaper"   rl              :open read-later-instapaper
+command -description "Send to Kindle using Readability"  kindle   :open send-to-kindle-readability
+
