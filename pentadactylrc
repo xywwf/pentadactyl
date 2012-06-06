@@ -340,4 +340,3 @@ noremap -description "Org Remember" -silent <F5> :org<CR>
 command -description "Read later on Instapaper"  rl           :open instapaper-archive
 command -description "Read later on Instapaper"  ip           :open instapaper-archive
 command -description "Read later on Instapaper"  instapaper   :open instapaper-archive
-

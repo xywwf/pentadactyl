@@ -16,4 +16,4 @@ bookmarks.getSearchURL = function(text, useDefsearch) {
     return [url, postData.value];
 
   return [url, null]; // can be null
-}
+};
