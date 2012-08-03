@@ -55,7 +55,7 @@ set newtab=all
 "     - Emacs GTK key-theme and FF already provide bindings for input fields
 "
 " M-x enters command mode
-noremap <A-x> :
+:map -builtin  <A-x> :
 
 " User styles as colorschemes
 :colorscheme maxzenburn
@@ -93,163 +93,163 @@ cmap <PageDown> <S-Tab>
 " ------------------------------
 
 " Motion command
-noremap j 2h
-noremap l 2l
-noremap i 3k
-noremap k 3j
-:noremap <Left>  2h
-noremap <Right> 2l
-noremap <Up>    3k
-noremap <Down>  3j
+:map -builtin  j 2h
+:map -builtin  l 2l
+:map -builtin  i 3k
+:map -builtin  k 3j
+:map -builtin  <Left>  2h
+:map -builtin  <Right> 2l
+:map -builtin  <Up>    3k
+:map -builtin  <Down>  3j
 "------------------------------
-noremap u gg
-noremap o G
-noremap <Home> gg
-noremap <End>  G
+:map -builtin  u gg
+:map -builtin  o G
+:map -builtin  <Home> gg
+:map -builtin  <End>  G
 "------------------------------
-noremap <A-j> :back<CR>
-noremap <A-l> :forward<CR>
-noremap <A-i> <PageUp>
-noremap <A-k> <PageDown>
-noremap <A-Left> :back<CR>
-noremap <A-Right> :forward<CR>
-noremap <A-Up> <PageUp>
-noremap <A-Down> <PageDown>
+:map -builtin  <A-j> :back<CR>
+:map -builtin  <A-l> :forward<CR>
+:map -builtin  <A-i> <PageUp>
+:map -builtin  <A-k> <PageDown>
+:map -builtin  <A-Left> :back<CR>
+:map -builtin  <A-Right> :forward<CR>
+:map -builtin  <A-Up> <PageUp>
+:map -builtin  <A-Down> <PageDown>
 "------------------------------
-noremap <A-u> :tabprevious<CR>
-noremap <A-o> :tabnext<CR>
-noremap <A-Home> :tabprevious<CR>
-noremap <A-End> :tabnext<CR>
-noremap <S-A-i> :tabprevious<CR>
-noremap <S-A-k> :tabnext<CR>
+:map -builtin  <A-u> :tabprevious<CR>
+:map -builtin  <A-o> :tabnext<CR>
+:map -builtin  <A-Home> :tabprevious<CR>
+:map -builtin  <A-End> :tabnext<CR>
+:map -builtin  <S-A-i> :tabprevious<CR>
+:map -builtin  <S-A-k> :tabnext<CR>
 "------------------------------
 
 
 
 " Use C-a and C-e to jump to first/last tab
-"noremap <C-a> g0
-"noremap <C-e> g$
+":map -builtin  <C-a> g0
+":map -builtin  <C-e> g$
 "
 " Or use them to go to the absolute left/right of the document
-" noremap <C-a> 0
-" noremap <C-e> $
+" :map -builtin  <C-a> 0
+" :map -builtin  <C-e> $
 
 " Use C-p and C-n for up/down
-" noremap <C-p> 2k
-" noremap <C-n> 2j
+" :map -builtin  <C-p> 2k
+" :map -builtin  <C-n> 2j
 
 " Use C-v and M-v for jump scrolling
-" noremap <C-v> <C-d>
-" noremap <A-v> <C-u>
+" :map -builtin  <C-v> <C-d>
+" :map -builtin  <A-v> <C-u>
 
 " Goto the top of the document with M-<
-" noremap <A-<> gg
+" :map -builtin  <A-<> gg
 
 " Goto the end of the document with M->
-" noremap <A->> G
+" :map -builtin  <A->> G
 
 " Use C-s and C-r for searching (n/N for next/prev as in less)
-noremap <C-s> /
-noremap <C-r> ?
+:map -builtin  <C-s> /
+:map -builtin  <C-r> ?
 
 " Copy the current URL to the clipboard with M-w
-noremap <A-w> y
+:map -builtin  <A-w> y
 "
 " Copy selected text to the clipboard with C-w
-noremap <C-c> Y
+:map -builtin  <C-c> Y
 
 " Paste the current clipboard selection to a new buffer with C-y
-noremap <C-v> P
+:map -builtin  <C-v> P
 
 " Use current URL as a start for a new location with C-x C-v
-noremap e O
+:map -builtin  e O
 
 " C-g as cancel (C-q is stop)
 cmap <C-g> <Esc>
 imap <C-g> <Esc>i
-noremap <C-g> <Esc>
+:map -builtin  <C-g> <Esc>
 
 " Avoid Find dialog when canceling a started command, C-x C-g
-noremap <C-x><C-g> <Esc>
+:map -builtin  <C-x><C-g> <Esc>
 "
 " Avoid quit on C-q, and it's more suitable for Stop here
-noremap q     :stop<CR>
-noremap <C-q> :stop<CR>
+:map -builtin  q     :stop<CR>
+:map -builtin  <C-q> :stop<CR>
 
 " Kill the buffer with C-x k
-noremap d <Nop>
-noremap <C-x>k :tabclose<CR>
-noremap dd :tabclose<CR>
+:map -builtin  d <Nop>
+:map -builtin  <C-x>k :tabclose<CR>
+:map -builtin  dd :tabclose<CR>
 
 " Undo close tab with C-_ (also with C-Shift-t, as C-t is new tab)
-noremap rr :undo<CR>
+:map -builtin  rr :undo<CR>
 
 
 " Exit and save the session with C-x C-c
-noremap <C-x><C-c> ZZ
+:map -builtin  <C-x><C-c> ZZ
 
 " Buffer lists with C-x b and C-x C-b, ready to swap
-noremap b          Bf
-noremap <C-x>b     Bf
-noremap <C-x><C-b> Bf
+:map -builtin  b          Bf
+:map -builtin  <C-x>b     Bf
+:map -builtin  <C-x><C-b> Bf
 
 
 " Open a link in a new tab with C-x t
 " Open a link in the current tab with C-x l
-" noremap <C-x>t :t<SPACE>
-" noremap <C-x>l :o<SPACE>
-" noremap t :t<SPACE>
-" noremap l :o<SPACE>
-noremap gg :o<SPACE>
+" :map -builtin  <C-x>t :t<SPACE>
+" :map -builtin  <C-x>l :o<SPACE>
+" :map -builtin  t :t<SPACE>
+" :map -builtin  l :o<SPACE>
+:map -builtin  gg :o<SPACE>
 
 
 " Open hints in new tab when Control is pressed,
 " and in a new backgroud tab when Alt is.
-noremap h f
-noremap <A-h> ;b
-noremap <C-h> ;t
-noremap f <Nop>
+:map -builtin  h f
+:map -builtin  <A-h> ;b
+:map -builtin  <C-h> ;t
+:map -builtin  f <Nop>
 
 
 " Open a link in a new tab with g
 " Open a link in the current tab <A-g>
-noremap <A-g><A-g> :t<SPACE>
-noremap  gg    :o<SPACE>
-"noremap  tt    :t<SPACE>
-"noremap  <A-g> :o<SPACE>
-"noremap  <A-t> :t<SPACE>
+:map -builtin  <A-g><A-g> :t<SPACE>
+:map -builtin   gg    :o<SPACE>
+":map -builtin   tt    :t<SPACE>
+":map -builtin   <A-g> :o<SPACE>
+":map -builtin   <A-t> :t<SPACE>
 
 "
 " Extended hint mode with M-j
 "  ; - focus link, a - save, y - copy link, O - :open query, T - for :tabopen ...
-noremap , ;
-noremap . :
+:map -builtin  , ;
+:map -builtin  . :
 
 
 " We can now also use F for Shift+b/f as back/forward
-"noremap F L
-"noremap B H
+":map -builtin  F L
+":map -builtin  B H
 
 " Back with Backspace as well
 map <BS> H
 
 " Use C-h i to start help
-noremap <C-h>i :help<CR>
+:map -builtin  <C-h>i :help<CR>
 
 " Record a key sequence into a macro with C-x (
-noremap <C-x>( q
+:map -builtin  <C-x>( q
 
 " Play a macro with C-x e
-noremap <C-x>e @
+:map -builtin  <C-x>e @
 
 " Set a mark at the cursor with C-x r m
-noremap <C-x>rm m
+:map -builtin  <C-x>rm m
 
 " Jump to the mark in the current buffer with C-x r b
-noremap <C-x>rb '
+:map -builtin  <C-x>rb '
 
 " C-v was pass-next, remap to bind with default keys
-noremap <C-d> <C-v>
+:map -builtin  <C-d> <C-v>
 "
 " C-x C-f starts the "Open File" dialog (C-x C-s is Save)
 map <C-x><C-f> <C-d><C-o>
@@ -334,15 +334,15 @@ command -description "Open starred elements in RSS/Mail" star :open http://www.g
 " firefox + pentadactyl).
 
 " Add a bookmark with C-c a (dialog)
-noremap -description "Save on Delicious" -silent <C-c>a :open delicious-save<CR>
-noremap -description "Save on Delicious" -silent <A-b>  :open delicious-save<CR>
+:map -builtin  -description "Save on Delicious" -silent <C-c>a :open delicious-save<CR>
+:map -builtin  -description "Save on Delicious" -silent <A-b>  :open delicious-save<CR>
 command -description "Open Delicious preferences" dprefs :emenu Strumenti.Delicious Options
 
 " Org-Mode commands (Implemented by bookmarklets)
 command -description "Remember in Emacs"   org-remember    :open org-remember
 command -description "Capture in Emacs"    org-capture     :open org-capture
 command -description "Store Link in Emacs"  org-store-link  :open org-store-link
-noremap -description "Remember in Emacs" -silent <F5> :org-remember<CR>
+:map -builtin  -description "Remember in Emacs" -silent <F5> :org-remember<CR>
 
 
 " Read Later commands (Implemented by bookmarklets)
