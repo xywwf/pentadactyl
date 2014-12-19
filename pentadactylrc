@@ -24,7 +24,7 @@ set go=Cs
 set editor="emacsclient -c"
 
 " Command line and search patterns history
-set history=10000
+set history=100
 
 " Show pattern matches as you type
 set incfind
