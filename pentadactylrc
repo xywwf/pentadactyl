@@ -45,7 +45,7 @@ set showstatuslinks=status
 set! browser.tabs.closeWindowWithLastTab=false
 
 " Show completions (delicious+awesomebar,google suggestions)
-set complete=native:delicious,suggestion
+" set complete=native:delicious,suggestion
 
 " Ex commands output in a new tab by default (prefs, addons...)
 set newtab=all
@@ -58,7 +58,7 @@ set newtab=all
 :map -builtin  <A-x> :
 
 " User styles as colorschemes
-:colorscheme maxzenburn
+" ":colorscheme maxzenburn
 
 " DISABLED Emacs navigation in command line and insert mode
 "cmap <C-n> <Tab>
