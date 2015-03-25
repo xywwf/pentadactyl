@@ -1,64 +1,85 @@
-" {{{ Pentadactyl configuration with Emacs bindings  -*- vimrc -*-
-"     Modified by Massimo Lauria 2010, 2011, 2012
+" {{{ Pentadactyl configuration   -*- vimrc -*-
 "
-" Bindings
-"   * http://sysphere.org/~anrxc/j/articles/vimperator/index.html
-
-" Todo
-"  * C-n and C-p in "INSERT (menu)" mode
-"    * http://code.google.com/p/vimperator-labs/issues/detail?id=36
-
-" License
-"  * http://creativecommons.org/publicdomain/zero/1.0
+" Modified by Massimo Lauria 2014
+"
+" This configuration is supposed to be used on Linux and MacOSX.
+" Unfortunately on MacOSX firefox does not get the Alt key. For this
+" reason the basic keybindings do not use modifiers. This is probably
+" a good idea in any case, since there is no much reason to use
+" modifiers while browsing. Another consequences is that few actions
+" cannot be performed with keyboards (like scrolling left/right).
+" Those actions should be rare enough that resorting to mouse should
+" not be a problem.
+"
+" The rationale is that disruptive actions should have double letter
+" (rr, dd, uu, ...).
+"
 " }}}
 
 
 " {{{ Options
 "
 
-" No toolbar and scrollbars by default
-set go=Cs
+set go=Cs                       " No toolbar and scrollbars by default
+set editor="emacsclient -c"     " C-i invokes editor in text fields
+set history=100                 " Command line and search patterns history
+set incfind                     " Show pattern matches as you type
+set hlfind                      " Hilight previous search pattern matches
+set findcase=smart              " Ignore case in search unless pattern has uppercase chars
+set showtabline=never           " No tabbar
+set showstatuslinks=status      " Show destination links in 1=status line, 2=command line
 
 
-" Editor, C-i invokes it in text fields
-set editor="emacsclient -c"
 
-" Command line and search patterns history
-set history=100
+set! browser.tabs.closeWindowWithLastTab=false " Do not close the window if last tab is closed.
 
-" Show pattern matches as you type
-set incfind
-
-" Hilight previous search pattern matches
-set hlfind
-
-" Ignore case in search unless pattern has uppercase chars
-set findcase=smart
-
-" Show the tab bar (just because of TreeTab extension)
-set showtabline=never
-
-" Show destination links in 1=status line, 2=command line
-set showstatuslinks=status
-
-" Do not close the window if last tab is closed.
-set! browser.tabs.closeWindowWithLastTab=false
-
-" Show completions (delicious+awesomebar,google suggestions)
-" set complete=native:delicious,suggestion
 
 " Ex commands output in a new tab by default (prefs, addons...)
 set newtab=all
 
 
 " {{{ Key bindings
-"     - Emacs GTK key-theme and FF already provide bindings for input fields
+
+" Motion command
+:map -builtin  i 4k
+:map -builtin  k 4j
+:map -builtin  I <PageUp>
+:map -builtin  K <PageDown>
+:map -builtin  <Left>  2h
+:map -builtin  <Right> 2l
+:map -builtin  <Up>    4k
+:map -builtin  <Down>  4j
+"------------------------------
+:map -builtin  <Home> gg
+:map -builtin  <End>  G
+"------------------------------
+:map -builtin  uu :back<CR>
+:map -builtin  oo :forward<CR>
+"------------------------------
+:map -builtin  j :tabNext<CR>
+:map -builtin  l :tabnext<CR>
+
+" Buffer commands
 "
-" M-x enters command mode
+" list and swap
+:map -builtin  b          :buffer<SPACE>
+:map -builtin  <C-x>b     :buffer<SPACE>
+:map -builtin  <C-x><C-b> :buffer<SPACE>
+" kill  
+:map -builtin  d <Nop>
+:map -builtin  <C-x>k :tabclose<CR>
+:map -builtin  dd :tabclose<CR>
+" undo close tab
+:map -builtin  rr :undo<CR>
+
+
+" Commands
 :map -builtin  <A-x> :
 
-" User styles as colorschemes
-" ":colorscheme maxzenburn
+
+
+
+
 
 " DISABLED Emacs navigation in command line and insert mode
 "cmap <C-n> <Tab>
@@ -92,62 +113,6 @@ cmap <PageDown> <S-Tab>
 
 " ------------------------------
 
-" Motion command
-:map -builtin  j 2h
-:map -builtin  l 2l
-:map -builtin  i 3k
-:map -builtin  k 3j
-:map -builtin  <Left>  2h
-:map -builtin  <Right> 2l
-:map -builtin  <Up>    3k
-:map -builtin  <Down>  3j
-"------------------------------
-:map -builtin  u gg
-:map -builtin  o G
-:map -builtin  <Home> gg
-:map -builtin  <End>  G
-"------------------------------
-:map -builtin  <A-j> :back<CR>
-:map -builtin  <A-l> :forward<CR>
-:map -builtin  <A-i> <PageUp>
-:map -builtin  <A-k> <PageDown>
-:map -builtin  <A-Left> :back<CR>
-:map -builtin  <A-Right> :forward<CR>
-:map -builtin  <A-Up> <PageUp>
-:map -builtin  <A-Down> <PageDown>
-"------------------------------
-:map -builtin  <A-u> :tabprevious<CR>
-:map -builtin  <A-o> :tabnext<CR>
-:map -builtin  <A-Home> :tabprevious<CR>
-:map -builtin  <A-End> :tabnext<CR>
-:map -builtin  <S-A-i> :tabprevious<CR>
-:map -builtin  <S-A-k> :tabnext<CR>
-"------------------------------
-
-
-
-" Use C-a and C-e to jump to first/last tab
-":map -builtin  <C-a> g0
-":map -builtin  <C-e> g$
-"
-" Or use them to go to the absolute left/right of the document
-" :map -builtin  <C-a> 0
-" :map -builtin  <C-e> $
-
-" Use C-p and C-n for up/down
-" :map -builtin  <C-p> 2k
-" :map -builtin  <C-n> 2j
-
-" Use C-v and M-v for jump scrolling
-" :map -builtin  <C-v> <C-d>
-" :map -builtin  <A-v> <C-u>
-
-" Goto the top of the document with M-<
-" :map -builtin  <A-<> gg
-
-" Goto the end of the document with M->
-" :map -builtin  <A->> G
-
 " Use C-s and C-r for searching (n/N for next/prev as in less)
 :map -builtin  <C-s> /
 :map -builtin  <C-r> ?
@@ -176,10 +141,6 @@ imap <C-g> <Esc>i
 :map -builtin  q     :stop<CR>
 :map -builtin  <C-q> :stop<CR>
 
-" Kill the buffer with C-x k
-:map -builtin  d <Nop>
-:map -builtin  <C-x>k :tabclose<CR>
-:map -builtin  dd :tabclose<CR>
 
 " Undo close tab with C-_ (also with C-Shift-t, as C-t is new tab)
 :map -builtin  rr :undo<CR>
@@ -188,10 +149,6 @@ imap <C-g> <Esc>i
 " Exit and save the session with C-x C-c
 :map -builtin  <C-x><C-c> ZZ
 
-" Buffer lists with C-x b and C-x C-b, ready to swap
-:map -builtin  b          Bf
-:map -builtin  <C-x>b     Bf
-:map -builtin  <C-x><C-b> Bf
 
 
 " Open a link in a new tab with C-x t
@@ -302,26 +259,16 @@ map <C-c>u gu
 " Go to the root of the website with C-c C-u
 map <C-c><C-u> gU
 
-" Restart with C-c C-r
-"map <C-c><C-r> :restart<CR>
-
-" Tab moving helpers
-"map <A-m> :tabmove<SPACE>
-map <S-A-u> :tabmove! -1<CR>
-map <S-A-o> :tabmove! +1<CR>
-map <S-A-Home> :tabmove! -1<CR>
-map <S-A-End> :tabmove! +1<CR>
-
-" }}}
-
 
 " Mail/Rss commands
 command -description "Mail reader"  mail :open www.gmail.com
-command -description "News reader"  rss  :open www.google.it/reader/view/
+command -description "News reader"  rss  :open digg.com/reader/
+command -description "Mail reader"  fb   :open www.facebook.com
+command -description "News reader"  tw   :open www.twitter.com
 
 
 " Frequent websites
-command -description "Open mail/rss/twitter input feeds" input :open http://www.google.it/reader/ | http://mail.google.com/mail/ | https://www.twitter.com
+command -description "Open mail/rss/twitter input feeds" input :open https://diggg.com/reader/ | https://mail.google.com/mail/ | https://www.twitter.com
 command -description "Open starred elements in RSS/Mail" star :open http://www.google.it/reader/view/user/-/state/com.google/starred | http://mail.google.com/mail/#starred
 
 
