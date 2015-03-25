@@ -20,18 +20,34 @@
 " {{{ Options
 "
 
-set go=Cs                       " No toolbar and scrollbars by default
-set editor="emacsclient -c"     " C-i invokes editor in text fields
-set history=100                 " Command line and search patterns history
-set incfind                     " Show pattern matches as you type
-set hlfind                      " Hilight previous search pattern matches
-set findcase=smart              " Ignore case in search unless pattern has uppercase chars
-set showtabline=never           " No tabbar
-set showstatuslinks=status      " Show destination links in 1=status line, 2=command line
+set go=Cs
+" No toolbar and scrollbars by default
+
+set editor="emacsclient -c"
+" C-i invokes editor in text fields
+
+set history=100
+" Command line and search patterns history
+
+set incfind
+" Show pattern matches as you type
+
+set hlfind
+" Hilight previous search pattern matches
+
+set findcase=smart
+" Ignore case in search unless pattern has uppercase chars
+
+set showtabline=never
+" No tabbar
+
+set showstatuslinks=status
+" Show destination links in 1=status line, 2=command line
 
 
 
-set! browser.tabs.closeWindowWithLastTab=false " Do not close the window if last tab is closed.
+set! browser.tabs.closeWindowWithLastTab=false
+" Do not close the window if last tab is closed.
 
 
 " Ex commands output in a new tab by default (prefs, addons...)
@@ -65,17 +81,28 @@ set newtab=all
 :map -builtin  b          :buffer<SPACE>
 :map -builtin  <C-x>b     :buffer<SPACE>
 :map -builtin  <C-x><C-b> :buffer<SPACE>
-" kill  
+
+" kill tabs
 :map -builtin  d <Nop>
 :map -builtin  <C-x>k :tabclose<CR>
 :map -builtin  dd :tabclose<CR>
-" undo close tab
 :map -builtin  rr :undo<CR>
 
+" Avoid quit on C-q, and it's more suitable for Stop here
+:map -builtin  q     :stop<CR>
+:map -builtin  <C-q> :stop<CR>
 
-" Commands
-:map -builtin  <A-x> :
+" Undo close tab
+:map -builtin  rr :undo<CR>
 
+" Avoid quit commands
+:map -builtin  Z <Nop>
+:map -builtin  ZZ <Nop>
+
+" Zoom 
+:map -builtin  \- zo
+:map -builtin  + zi
+:map -builtin  = zi
 
 
 
@@ -137,17 +164,7 @@ imap <C-g> <Esc>i
 " Avoid Find dialog when canceling a started command, C-x C-g
 :map -builtin  <C-x><C-g> <Esc>
 "
-" Avoid quit on C-q, and it's more suitable for Stop here
-:map -builtin  q     :stop<CR>
-:map -builtin  <C-q> :stop<CR>
 
-
-" Undo close tab with C-_ (also with C-Shift-t, as C-t is new tab)
-:map -builtin  rr :undo<CR>
-
-
-" Exit and save the session with C-x C-c
-:map -builtin  <C-x><C-c> ZZ
 
 
 
@@ -212,16 +229,6 @@ map <BS> H
 map <C-x><C-f> <C-d><C-o>
 map <C-x><C-s> <C-d><C-s>
 
-
-" {{{ Personal key bindings
-"
-" M-b toggles the toolbar and scrollbars
-"map <A-b> :set go+=brT<CR>
-"map <A-B> :set go-=brT<CR>
-
-" Sidebar selection with s, close with S
-" map s :sidebar<SPACE>
-" map S :sbclose<CR>
 
 " Dialog selection with d
 " map d :dialog<SPACE>
