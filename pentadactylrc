@@ -23,6 +23,9 @@
 set go=Cs
 " No toolbar and scrollbars by default
 
+set complete=bookmark,location
+" No toolbar and scrollbars by default
+
 set editor="emacsclient -c"
 " C-i invokes editor in text fields
 
@@ -54,7 +57,18 @@ set! browser.tabs.closeWindowWithLastTab=false
 set newtab=all
 
 
+loadplugins '\.(js|penta)$'
+
+
+" Source sensitive data
+:source ~/personal/conf/pentadactyl-sensitive
+
 " {{{ Key bindings
+
+:map -builtin <SPACE> :
+:map -builtin <A-x> :
+
+
 
 " Motion command
 :map -builtin  i 4k
@@ -74,6 +88,16 @@ set newtab=all
 "------------------------------
 :map -builtin  j :tabNext<CR>
 :map -builtin  l :tabnext<CR>
+
+
+:map -builtin  gg :open<SPACE>
+
+
+" Open links (h: normal, H: new tab, <C-h>: new tab background)
+:map -builtin  h f
+:map -builtin  H ;t
+:map -builtin  <C-h> ;b
+:map -builtin  f <Nop>
 
 " Buffer commands
 "
@@ -104,117 +128,37 @@ set newtab=all
 :map -builtin  + zi
 :map -builtin  = zi
 
-
-
-
-
-" DISABLED Emacs navigation in command line and insert mode
-"cmap <C-n> <Tab>
-"cmap <C-p> <S-Tab>
-"cmap <C-f> <Right>
-"cmap <C-b> <Left>
-"cmap <C-j> <CR>
-
-" My own command line navigation.
-cmap <A-j> <Left>
-cmap <A-l> <Right>
-cmap <A-i> <Up>
-cmap <A-k> <Down>
-" ------------------------------
-cmap <A-u> <S-Tab>
-cmap <A-o> <Tab>
-cmap <A-Tab> <Tab>
-" ------------------------------
-cmap <C-j> <C-Left>
-cmap <C-l> <C-Right>
-cmap <C-i> <C-Up>
-cmap <C-k> <C-Down>
-" ------------------------------
-cmap <C-u> <S-Tab>
-cmap <C-o> <Tab>
-cmap <C-Tab> <Tab>
-" ------------------------------
-cmap <PageUp> <Tab>
-cmap <PageDown> <S-Tab>
-" ------------------------------
-
-" ------------------------------
-
-" Use C-s and C-r for searching (n/N for next/prev as in less)
-:map -builtin  <C-s> /
-:map -builtin  <C-r> ?
-
-" Copy the current URL to the clipboard with M-w
-:map -builtin  <A-w> y
-"
-" Copy selected text to the clipboard with C-w
-:map -builtin  <C-c> Y
-
-" Paste the current clipboard selection to a new buffer with C-y
-:map -builtin  <C-v> P
-
-" Use current URL as a start for a new location with C-x C-v
-:map -builtin  e O
-
-" C-g as cancel (C-q is stop)
-cmap <C-g> <Esc>
-imap <C-g> <Esc>i
-:map -builtin  <C-g> <Esc>
-
-" Avoid Find dialog when canceling a started command, C-x C-g
-:map -builtin  <C-x><C-g> <Esc>
-"
-
-
-
-
-" Open a link in a new tab with C-x t
-" Open a link in the current tab with C-x l
-" :map -builtin  <C-x>t :t<SPACE>
-" :map -builtin  <C-x>l :o<SPACE>
-" :map -builtin  t :t<SPACE>
-" :map -builtin  l :o<SPACE>
-:map -builtin  gg :o<SPACE>
-
-
-" Open hints in new tab when Control is pressed,
-" and in a new backgroud tab when Alt is.
-:map -builtin  h f
-:map -builtin  <A-h> ;b
-:map -builtin  <C-h> ;t
-:map -builtin  f <Nop>
-
-
-" Open a link in a new tab with g
-" Open a link in the current tab <A-g>
-:map -builtin  <A-g><A-g> :t<SPACE>
-:map -builtin   gg    :o<SPACE>
-":map -builtin   tt    :t<SPACE>
-":map -builtin   <A-g> :o<SPACE>
-":map -builtin   <A-t> :t<SPACE>
-
-"
 " Extended hint mode with M-j
 "  ; - focus link, a - save, y - copy link, O - :open query, T - for :tabopen ...
 :map -builtin  , ;
 :map -builtin  . :
 
 
-" We can now also use F for Shift+b/f as back/forward
-":map -builtin  F L
-":map -builtin  B H
+" Use C-s and C-r for searching (n/N for next/prev as in less)
+:map -builtin  <C-s> /
+:map -builtin  <C-r> ?
+
+" Clipboard
+" y - Copy the current URL 
+" p - paste the current clipboard as URL
+" Y - Copy selected text
+" P - paste the current selection to a new buffer
+
+" Edit URL
+:map -builtin  e O
+
 
 " Back with Backspace as well
-map <BS> H
+:map <BS> :back<CR>
 
-" Use C-h i to start help
+" Help
 :map -builtin  <C-h>i :help<CR>
+:map -builtin  <F1> :help<CR>
 
-" Record a key sequence into a macro with C-x (
-:map -builtin  <C-x>( q
 
-" Play a macro with C-x e
-:map -builtin  <C-x>e @
+" Macro Record and Play
+:map -builtin  <F3> q
+:map -builtin  <F4> @
 
 " Set a mark at the cursor with C-x r m
 :map -builtin  <C-x>rm m
@@ -230,42 +174,10 @@ map <C-x><C-f> <C-d><C-o>
 map <C-x><C-s> <C-d><C-s>
 
 
-" Dialog selection with d
-" map d :dialog<SPACE>
-
-" Focus the address bar with C-l
-" map <C-l> <C-d><C-l>
-
-" Focus last used input field with C-c i
-map <C-c>i gi
 
 " Bookmarks search, and search by tag
 " map <C-c>q :bmarks<SPACE>
 " map <C-c>w :bmarks -tags=
-
-" View source with C-c g, and
-map <C-c>g gf
-" ... in an editor with C-c e
-map <C-c>e gF
-
-" Open picture location with C-c p
-map <C-c>p ;i
-
-" Open context menu with C-c m
-map <C-c>m ;c
-
-" Open home directory with C-c f
-map <C-c>f ~
-
-" Go to home page with C-c h
-map <C-c>h gh
-
-" Go to parent directory with C-c u
-map <C-c>u gu
-
-" Go to the root of the website with C-c C-u
-map <C-c><C-u> gU
-
 
 " Mail/Rss commands
 command -description "Mail reader"  mail :open www.gmail.com
@@ -309,3 +221,4 @@ command -description "View in Instapaper"         instapaper      :open text-ins
 command -description "Make page easy to read (instapaper)" read   :open text-instapaper
 command -description "Read later (instapaper)"             later  :open read-later-instapaper
 command -description "Send to Kindle (readability)"        kindle :open send-to-kindle-readability
+
