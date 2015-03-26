@@ -75,6 +75,8 @@ loadplugins '\.(js|penta)$'
 :map -builtin  k 4j
 :map -builtin  I <PageUp>
 :map -builtin  K <PageDown>
+:map -builtin  <C-i> <PageUp>
+:map -builtin  <C-k> <PageDown>
 :map -builtin  <Left>  2h
 :map -builtin  <Right> 2l
 :map -builtin  <Up>    4k
@@ -108,6 +110,7 @@ loadplugins '\.(js|penta)$'
 
 " Tabs
 :map -builtin  d <Nop>
+:map -builtin  D <Nop>
 :map -builtin  <C-x>k :tabclose<CR>
 :map -builtin  dd :tabclose<CR>
 :map -builtin  rr :undo<CR>
@@ -123,9 +126,10 @@ loadplugins '\.(js|penta)$'
 :map -builtin  ZZ <Nop>
 
 " Zoom 
-:map -builtin  \- zo
+:map -builtin  \- ZO
+:map -builtin  = ZI
+:map -builtin  _ zo
 :map -builtin  + zi
-:map -builtin  = zi
 
 " Extended hint mode with M-j
 "  ; - focus link, a - save, y - copy link, O - :open query, T - for :tabopen ...
