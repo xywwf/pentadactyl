@@ -106,18 +106,17 @@ loadplugins '\.(js|penta)$'
 :map -builtin  <C-x>b     :buffer<SPACE>
 :map -builtin  <C-x><C-b> :buffer<SPACE>
 
-" kill tabs
+" Tabs
 :map -builtin  d <Nop>
 :map -builtin  <C-x>k :tabclose<CR>
 :map -builtin  dd :tabclose<CR>
 :map -builtin  rr :undo<CR>
+:map -builtin  tt :tabopen<SPACE>
 
 " Avoid quit on C-q, and it's more suitable for Stop here
 :map -builtin  q     :stop<CR>
 :map -builtin  <C-q> :stop<CR>
 
-" Undo close tab
-:map -builtin  rr :undo<CR>
 
 " Avoid quit commands
 :map -builtin  Z <Nop>
