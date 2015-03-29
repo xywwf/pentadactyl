@@ -1,0 +1,39 @@
+
+/* Simplify facebook webpage */
+@-moz-document domain("www.facebook.com") {
+    #leftCol{ display: none !important; }
+    #rightCol{ display: none !important; }
+    #appsNav{ display: none !important; }
+    #eventsNav{ display: none !important; }
+    #groupsNav{ display: none !important; }
+    #pagesNav{ display: none !important; }
+    .fbChatSidebar,#fbDockChatBuddylistNub{ display: none !important; }
+}
+
+/* Simplify twitter webpage */
+@-moz-document domain("twitter.com") {
+    div.module.trends{ display: none !important; }
+    div.module.site-footer{ display: none !important; }
+    div.module.wtf-module.js-wtf-module.has-content{ display: none !important; }
+    .wrapper.white { background: none !important;}
+}
+
+
+/* Customize Gmail */
+@-moz-document url-prefix("https://mail.google.com/"){
+
+    /* remove google plus shit  */
+    ol.gbtc { display: none ! important;}
+
+    /* get rid of copy right */
+    div.wIFnie { display: none !important; }
+
+    /* Remove people widget completely */
+    .nH.adC {
+        display: none ! important;
+    }
+
+    .yPPMxf, .nH.adC, .qHcrae, .y3, .y4 {
+        width: 0 ! important;
+    }
+}

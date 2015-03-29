@@ -47,7 +47,11 @@ set showtabline=never
 set showstatuslinks=status
 " Show destination links in 1=status line, 2=command line
 
+set hintkeys=asdfg;lkjh
 
+" Small smooth scrolling"
+set scrolltime=0
+set scrollsteps=5
 
 set! browser.tabs.closeWindowWithLastTab=false
 " Do not close the window if last tab is closed.
@@ -56,12 +60,11 @@ set! browser.tabs.closeWindowWithLastTab=false
 " Ex commands output in a new tab by default (prefs, addons...)
 set newtab=all
 
-
+" Load external files
 loadplugins '\.(js|penta)$'
-
-
-" Source sensitive data
 :source ~/personal/conf/pentadactyl-sensitive
+:source ~/config/pentadactyl/user.css
+
 
 " {{{ Key bindings
 
@@ -100,6 +103,7 @@ loadplugins '\.(js|penta)$'
 :map -builtin  H ;t
 :map -builtin  <C-h> ;b
 :map -builtin  f <Nop>
+hi -a Hint font-size: 14pt !important;
 
 " Buffer commands
 "
@@ -150,9 +154,6 @@ loadplugins '\.(js|penta)$'
 " Edit URL
 :map -builtin  e O
 
-
-" Back with Backspace as well
-:map <BS> :back<CR>
 
 " Help
 :map -builtin  <C-h>i :help<CR>
