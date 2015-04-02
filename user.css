@@ -1,8 +1,8 @@
 
 /* Simplify facebook webpage */
 @-moz-document domain("www.facebook.com") {
-    #leftCol{ display: none !important; }
-    #rightCol{ display: none !important; }
+    /* #leftCol{ display: none !important; } */
+    /* #rightCol{ display: none !important; } */
     #appsNav{ display: none !important; }
     #eventsNav{ display: none !important; }
     #groupsNav{ display: none !important; }

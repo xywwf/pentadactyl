@@ -191,38 +191,29 @@ command -description "News reader"  tw   :open www.twitter.com
 
 
 " Frequent websites
-command -description "Open mail/rss/twitter input feeds" input :open https://diggg.com/reader/ | https://mail.google.com/mail/ | https://www.twitter.com
-command -description "Open starred elements in RSS/Mail" star :open http://www.google.it/reader/view/user/-/state/com.google/starred | http://mail.google.com/mail/#starred
+command -description "Open mail/rss/twitter/fb input feeds (not a good idea...)"
+        \ input
+        \ :open https://mail.google.com/mail  | https://digg.com/reader | https://www.twitter.com | https://www.facebook.com
+
+command -description "Web material to read"
+        \ saved
+        \ :open http://www.google.it/reader/view/user/-/state/com.google/starred  | https://www.instapaper.com/u | http://getpocket.com/a/queue/list/
 
 
-" Unfortunately bookmarklets cannot be saved in Delicious anymore...
-" I have to resort to the classical firefox bookmarks, which have to
-" be imported into each browser.
-"
 " Following commands do not work without the bookmarklets. I could
 " embed then into the rc file (but then I could use then only in
-" firefox + pentadactyl).
-
-" Add a bookmark with C-c a (dialog)
-:map -builtin  -description "Save on Delicious" -silent <C-c>a :open delicious-save<CR>
-:map -builtin  -description "Save on Delicious" -silent <A-b>  :open delicious-save<CR>
-command -description "Open Delicious preferences" dprefs :emenu Strumenti.Delicious Options
+" firefox + pentadactyl.
 
 " Org-Mode commands (Implemented by bookmarklets)
-command -description "Remember in Emacs"   org-remember    :open org-remember
 command -description "Capture in Emacs"    org-capture     :open org-capture
 command -description "Store Link in Emacs"  org-store-link  :open org-store-link
-:map -builtin  -description "Remember in Emacs" -silent <F5> :org-remember<CR>
 
 
 " Read Later commands (Implemented by bookmarklets)
-command -description "Read later on Readability"  rl-readability  :open read-later-readability
 command -description "Read later on Instapaper"   rl-instapaper   :open read-later-instapaper
-command -description "View in Readability"        readability     :open text-readability
 command -description "View in Instapaper"         instapaper      :open text-instapaper
 
 " Defaults
 command -description "Make page easy to read (instapaper)" read   :open text-instapaper
 command -description "Read later (instapaper)"             later  :open read-later-instapaper
-command -description "Send to Kindle (readability)"        kindle :open send-to-kindle-readability
 
