@@ -197,7 +197,7 @@ command -description "Open mail/rss/twitter/fb input feeds (not a good idea...)"
 
 command -description "Web material to read"
         \ saved
-        \ :open http://www.google.it/reader/view/user/-/state/com.google/starred  | https://www.instapaper.com/u | http://getpocket.com/a/queue/list/
+        \ :open https://www.instapaper.com/u | http://getpocket.com/a/queue/list/
 
 
 " Following commands do not work without the bookmarklets. I could
