@@ -1,6 +1,6 @@
 " {{{ Pentadactyl configuration   -*- vimrc -*-
 "
-" Modified by Massimo Lauria 2014
+" Massimo Lauria 2014, 2015
 "
 " This configuration is supposed to be used on Linux and MacOSX.
 " Unfortunately on MacOSX firefox does not get the Alt key. For this
@@ -25,9 +25,6 @@ set go=Cs
 
 set complete=bookmark,location
 " No toolbar and scrollbars by default
-
-set editor="emacsclient -c"
-" C-i invokes editor in text fields
 
 set history=100
 " Command line and search patterns history
@@ -64,6 +61,7 @@ set newtab=all
 loadplugins '\.(js|penta)$'
 :source ~/personal/conf/pentadactyl-sensitive
 :source ~/config/pentadactyl/user.css
+:source ~/config/pentadactyl/emacs.rc
 
 
 " {{{ Key bindings
@@ -88,6 +86,8 @@ loadplugins '\.(js|penta)$'
 :map -builtin  <Home> gg
 :map -builtin  <End>  G
 "------------------------------
+:map -builtin  u <Nop>
+:map -builtin  o <Nop>
 :map -builtin  uu :back<CR>
 :map -builtin  oo :forward<CR>
 "------------------------------
@@ -178,11 +178,6 @@ map <C-x><C-f> <C-d><C-o>
 map <C-x><C-s> <C-d><C-s>
 
 
-
-" Bookmarks search, and search by tag
-" map <C-c>q :bmarks<SPACE>
-" map <C-c>w :bmarks -tags=
-
 " Mail/Rss commands
 command -description "Mail reader"  mail :open www.gmail.com
 command -description "News reader"  rss  :open digg.com/reader/
@@ -209,11 +204,14 @@ command -description "Capture in Emacs"    org-capture     :open org-capture
 command -description "Store Link in Emacs"  org-store-link  :open org-store-link
 
 
-" Read Later commands (Implemented by bookmarklets)
-command -description "Read later on Instapaper"   rl-instapaper   :open read-later-instapaper
-command -description "View in Instapaper"         instapaper      :open text-instapaper
-
+" Read Later commands
+command -description "Read later on Instapaper"  ip      :open rl-instapaper
+command -description "View later on Pocket"      pocket  :open rl-pocket
+command -description "Format page in Instapaper" format  :open format-instapaper
 " Defaults
-command -description "Make page easy to read (instapaper)" read   :open text-instapaper
-command -description "Read later (instapaper)"             later  :open read-later-instapaper
+command -description "Read later (default)"      rl      :open rl-instapaper
 
+" Translation commands
+command -description "Translate to Italian"  italiano     :open italiano
+command -description "Translate to English"  inglese      :open inglese
+command -description "Translate to Swedish"  svedese      :open svedese
